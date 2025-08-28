@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoggingService } from '../../../Service/logging.service';
 import { LoginService } from '../../../Service/login.service';
+import { DispatcherService } from '../../../Service/dispatcher.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
-  standalone: false, 
+  standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
 
@@ -17,7 +19,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private logger: LoggingService,
-    private loginService: LoginService
+    private dispatcherService :DispatcherService
     ){
     this.loginForm = this.fb.group({
       Email: ['', [Validators.required ,Validators.email]],
@@ -33,17 +35,6 @@ export class LoginComponent {
     const email = this.loginForm.get('Email')?.value;
     const password = this.loginForm.get('Password')?.value;
     this.logger.debug(`Attempting login for: ${email}`);
-    this.loginService.login(email, password).subscribe({
-      next: (res) => {
-        if (res.success) {  
-          this.logger.debug(`Login successful for ${email}`);
-        } else {
-          this.logger.debug(`Login failed for ${email}: ${res.message}`);
-        }
-      },
-      error: (err) => {
-        this.logger.debug(`Login error for ${email}: ${err.message}`);
-      }
-    });
+    this.dispatcherService.login(email, password);
   }
 }
