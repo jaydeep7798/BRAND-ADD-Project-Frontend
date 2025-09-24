@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginResponse } from '../Message/response';
+import { LoginResponse } from '../Message/LoginResponse';
 import { environment } from '../Environment/environment';
 import { LOGIN_ENDPOINT } from '../Constants/constant';
 import { HttpClient } from '@angular/common/http';
@@ -11,8 +11,6 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   private apiUrl = 'http://localhost:3333/api/test';
-
-  token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) { }
 
@@ -27,11 +25,8 @@ export class LoginService {
     return this.http.post<any>(this.apiUrl,body);
   }
   
-  authCheckForLogin(){
-    if (!this.token){
-      return false;
-    } else{
-      return true;
-    }
+  authCheckForLogin() {
+    const token = localStorage.getItem('token');
+    return !!token;   
   }
 }

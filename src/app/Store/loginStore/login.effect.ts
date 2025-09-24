@@ -4,12 +4,14 @@ import * as LoginActions from './login.action';
 import { LoginService } from '../../Service/login.service';  // ✅ replaced AuthService
 import { catchError, map, mergeMap, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../Service/notification.service';
 
 @Injectable()
 export class LoginEffects {
   private actions$ = inject(Actions);
   private loginService = inject(LoginService);
   private router = inject(Router);
+  private notificationService = inject(NotificationService)
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -19,11 +21,14 @@ export class LoginEffects {
           map(res => {
             if (res?.success && res?.token) {
               localStorage.setItem('token', res.token);
+              this.notificationService.success("SuccessFully Login");
               return LoginActions.loginSuccess({ token: res.token, email });
+            }else{
+              this.notificationService.error("Invalid Credentials")
+              return LoginActions.loginFailure({
+                error: res?.message ?? 'Login failed',
+              });
             }
-            return LoginActions.loginFailure({
-              error: res?.message ?? 'Login failed',
-            });
           }),
           catchError(err =>
             of(LoginActions.loginFailure({ error: err?.message ?? 'Login error' }))

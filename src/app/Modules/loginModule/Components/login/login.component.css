@@ -1,0 +1,104 @@
+
+/* Full page layout */
+.container {
+  display: flex;
+  justify-content: flex-end;   
+  align-items: center;        
+  min-height: 100vh;
+  padding-right: 100px; 
+}
+
+/* Form card */
+.form-box {
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 360px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  caret-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.form-box * {
+  user-select: text;           /* Allow text selection inside */
+}
+
+/* Heading */
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #00FFB2, #00CFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(0,255,178,0.8), 0 0 20px rgba(0,207,255,0.7);
+}
+
+/* Input fields */
+.input-box {
+  width: 91%;                 /* ✅ Aligns with button */
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  outline: none;
+  font-size: 1rem;
+  background: #fff;
+  color: #333;
+  caret-color: #00CFFF;        /* ✅ Caret only in inputs */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-box:focus {
+  border: 1px solid #00CFFF;
+  box-shadow: 0 0 8px rgba(0,207,255,0.5);
+}
+
+/* Button */
+.btn {
+  display: center;
+  width: 59%;
+  padding: 10px 7px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00FFB2, #00CFFF);
+  box-shadow: 0 4px 15px rgba(0, 200, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 200, 255, 0.6);
+}
+
+.heading:hover {
+  transform: translateY(-2px);
+}
+
+nav {
+  display: flex;            /* arrange links side by side */
+  justify-content: center;         /* arrange links side by side */
+  gap: 20px;
+  padding-top: 10px;         /* space between links */
+}
+
+nav a {
+  text-decoration: none; /* remove underline */
+  color:linear-gradient(135deg, #00FFB2, #00CFFF);        /* link color (blue) */
+  font-weight: 500;      /* slightly bold */
+}
+
+nav a:hover {
+  color: linear-gradient(135deg, #00FFB2, #00CFFF);      /* darker blue on hover */
+}
+

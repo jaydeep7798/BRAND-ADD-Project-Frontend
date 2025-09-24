@@ -1,0 +1,41 @@
+
+<div class="signupContainer">
+<form  [formGroup]="signFormUp" (ngSubmit)="submitSignUpForm()">
+  <h2 class="heading">Sign up Form</h2>
+    <label>Full Name</label>
+    <input type="text" formControlName="fullName" required>
+  
+    <label>Email</label>
+    <input type="email" formControlName="email" required>
+
+    <div *ngIf="otpSent">
+      <label>Enter OTP</label>
+      <input type="text" formControlName="OTP" maxlength="6">
+      <button type="button">Verify OTP</button>
+    </div>
+
+    <!-- Step 3: Password creation (only if verified) -->
+    <div *ngIf="otpVerified">
+      <label>Password</label>
+      <input type="password" formControlName="password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" required>
+    </div>
+
+    <label>Phone</label>
+    <input type="tel" formControlName="phone">
+
+    <label>City</label>
+    <input type="text" formControlName="city" required>
+  
+    <label>
+      <input type="checkbox" formControlName="terms" required>
+      I agree to the Terms & Conditions
+    </label>
+  
+    <button type="submit">Sign Up</button>
+  </form>
+
+</div>
+  

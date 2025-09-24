@@ -6,8 +6,8 @@ import { HttpInterceptorFn } from '@angular/common/http';
 export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
   const token = localStorage.getItem('token');
 
-  if (req.url.includes('/login')) {
-    console.log('⏭️ Skipping token for login request');
+  if (req.url.includes('/login') || req.url.includes('/signUp')) {
+    console.log('⏭️ Skipping token for login/SignUp request');
     return next(req);
   }
 

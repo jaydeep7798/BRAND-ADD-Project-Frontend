@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+/* Background for login page */
+
+/* Reset and prevent global horizontal scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+.login-background {
+    background: url("assets/images/brand-add-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* src/styles.css */
+.snackbar-success {
+  background: linear-gradient(45deg, #43a047, #66bb6a) !important;
+  color: #fff !important;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.snackbar-error {
+  background: linear-gradient(45deg, #e53935, #ef5350) !important;
+  color: #fff !important;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.snackbar-info {
+  background: linear-gradient(45deg, #1e88e5, #42a5f5) !important;
+  color: #fff !important;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.snackbar-warning {
+  background: linear-gradient(45deg, #f57c00, #ffb74d) !important;
+  color: #fff !important;
+  font-weight: 500;
+  border-radius: 8px;
+}
+

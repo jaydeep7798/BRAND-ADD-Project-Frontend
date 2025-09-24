@@ -1,0 +1,30 @@
+<div class="container">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="form-box">
+      <h2 class="heading">Brand Add</h2>
+  
+      <input 
+        type="email" 
+        formControlName="Email" 
+        name="Email" 
+        placeholder="Enter your email" 
+        class="input-box"
+      >
+  
+      <input 
+        type="password" 
+        formControlName="Password" 
+        name="Password" 
+        placeholder="Enter your password" 
+        class="input-box"
+      >
+  
+      <button type="submit" class="btn">Login</button>
+
+      <p>
+        Don’t have an account?
+        <a routerLink="/login/signup">Sign up</a>
+      </p>
+    
+    </form>
+  </div>
+  

@@ -1,2 +1,8 @@
 <p>dashboard works!</p>
 <button (click)="sendData()"> add Details</button>
+<button (click)="logout()">Logout</button>
+
+<form [formGroup]="searchForm" >
+   <input type="text" placeholder="Enter a value" formControlName="value" /><br>
+   <button type="submit">Submit</button>
+</form>

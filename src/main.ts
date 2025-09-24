@@ -11,15 +11,28 @@ import { importProvidersFrom } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from './app/app.routes';
 import { AuthInterceptor } from './app/Auth/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpEffects } from './app/Store/signUp/signUp.effect';
+import { signUpReducer } from './app/Store/signUp/signUp.reducer';
+
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
-    provideStore({ login: loginReducer }),
-    provideEffects([LoginEffects]),
+    provideStore({ login: loginReducer,
+                   signup: signUpReducer
+    }),
+    provideEffects([LoginEffects,
+                    SignUpEffects
+                  ]),
     provideStoreDevtools({ maxAge: 25 }),
     provideHttpClient(withInterceptors([AuthInterceptor])),
     LoginService, // ✅ Provide the LoginService so DI works
-    importProvidersFrom(RouterModule.forRoot(routes)),
+    importProvidersFrom(RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule),
   ]
 }).catch(err => console.error(err));

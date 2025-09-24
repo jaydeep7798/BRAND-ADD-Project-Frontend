@@ -1,0 +1,96 @@
+/* Container for Signup */
+.signupContainer {
+    display: flex;
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
+    min-height: 100vh;
+    background: #f7f9fc;
+  }
+  
+  /* Signup Form Box */
+  .signupContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    width: 400px;
+  }
+  
+  /* Heading */
+  .signupContainer .heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #00FFB2, #00CFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  
+  /* Labels */
+  .signupContainer form label {
+    align-self: flex-start;   /* Align label with input start */
+    font-size: 0.95rem;
+    margin: 8px 0 4px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Inputs */
+  .signupContainer form input[type="text"],
+  .signupContainer form input[type="email"],
+  .signupContainer form input[type="password"],
+  .signupContainer form input[type="tel"] {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 3px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    outline: none;
+    font-size: 1rem;
+    background: #fff;
+    color: #333;
+    caret-color: #00CFFF;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .signupContainer form input:focus {
+    border: 1px solid #00CFFF;
+    box-shadow: 0 0 8px rgba(0, 207, 255, 0.5);
+  }
+  
+  /* Checkbox Label */
+  .signupContainer form label input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #00CFFF;
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  
+  /* Submit Button */
+  .signupContainer form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #00FFB2, #00CFFF);
+    box-shadow: 0 4px 15px rgba(0, 200, 255, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .signupContainer form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 200, 255, 0.6);
+  }
+  
