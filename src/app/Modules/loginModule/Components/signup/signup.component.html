@@ -4,31 +4,34 @@
   <h2 class="heading">Sign up Form</h2>
     <label>Full Name</label>
     <input type="text" formControlName="fullName" required>
-  
-    <label>Email</label>
-    <input type="email" formControlName="email" required>
-
-    <div *ngIf="otpSent">
-      <label>Enter OTP</label>
-      <input type="text" formControlName="OTP" maxlength="6">
-      <button type="button">Verify OTP</button>
-    </div>
-
-    <!-- Step 3: Password creation (only if verified) -->
-    <div *ngIf="otpVerified">
-      <label>Password</label>
-      <input type="password" formControlName="password" required>
-
-      <label>Confirm Password</label>
-      <input type="password" formControlName="confirmPassword" required>
-    </div>
 
     <label>Phone</label>
     <input type="tel" formControlName="phone">
 
     <label>City</label>
     <input type="text" formControlName="city" required>
-  
+
+    <div class="input-with-btn">
+      <label>Email</label>
+      <input type="email" formControlName="email" required>
+      <button *ngIf="signFormUp.get('email')?.value && signFormUp.get('email')?.valid" type="button" class="otpBtn" (click)="generateOTP()">Generate OTP</button>
+    </div>
+    
+    <div class="input-with-btn" *ngIf="otpSent && signFormUp.get('email')?.value && signFormUp.get('email')?.valid">
+      <label>Enter OTP</label>
+      <input type="text" formControlName="OTP" maxlength="6">
+      <button type="button" class="otpBtn" (click)="verifyOTP()">Verify OTP</button>
+    </div>
+    
+    <!-- Step 3: Password creation (only if verified) -->
+    <div *ngIf="otpVerified && signFormUp.get('OTP')?.value">
+      <label>Password</label>
+      <input type="password" formControlName="password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" required> 
+    </div>
+    
     <label>
       <input type="checkbox" formControlName="terms" required>
       I agree to the Terms & Conditions

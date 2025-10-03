@@ -21,10 +21,10 @@ export class SignupComponent {
     this.signFormUp = this.fb.group({
       fullName:['',[Validators.required,Validators.pattern('^[a-zA-Z ]+$')]],
       email: ['', [Validators.required ,Validators.email]],
-      //password :['' ,[Validators.required ,Validators.maxLength(6)]],
-      //OTP: [''],  
+      password :[''],
+      OTP: [''],  
       phone: ['',[Validators.maxLength(10),Validators.pattern('^[0-9]{10}$') ]],
-      //confirmPassword: [''],
+      confirmPassword: [''],
       city:[''],
       terms: [false, Validators.requiredTrue]  
     })
@@ -37,5 +37,12 @@ export class SignupComponent {
     }
     const signUpData: SignUp = this.signFormUp.value as SignUp;
     this.dispatcherService.signup(signUpData);
+  }
+
+  generateOTP(){
+    this.otpSent =true;
+  }
+  verifyOTP(){
+    this.otpVerified =true;
   }
 }
